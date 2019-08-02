@@ -1,0 +1,60 @@
+// When the user scrolls down 80px from the top of the document, resize the navbar's padding and the logo's font size
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+	document.getElementById("nav-text1").style.color = "#00FF00";
+	document.getElementById("nav-text2").style.color = "#00FF00";
+	document.getElementById("nav-text3").style.color = "#00FF00";
+	document.getElementById("nav-text4").style.color = "#00FF00";
+  } else {
+	document.getElementById("nav-text1").style.color = "#080808";
+	document.getElementById("nav-text2").style.color = "#080808";
+	document.getElementById("nav-text3").style.color = "#080808";
+	document.getElementById("nav-text4").style.color = "#080808";
+  }
+}
+
+function scroll_to(clicked_link, nav_height) {
+	var element_class = clicked_link.attr('href').replace('#', '.');
+	var scroll_to = 0;
+	if(element_class != '.top-content') {
+		element_class += '-container';
+		scroll_to = $(element_class).offset().top - nav_height;
+	}
+	if($(window).scrollTop() != scroll_to) {
+		$('html, body').stop().animate({scrollTop: scroll_to}, 1000);
+	}
+}
+
+
+jQuery(document).ready(function() {
+
+	$(window).scroll(function() {
+		if ($(document).scrollTop() > 50) {
+			$('nav').removeClass('transparent');
+		} else {			
+			$('nav').addClass('transparent');
+		}
+	});
+
+	/*
+	    Scroll link
+	*/
+	$('a.scroll-link').on('click', function(e) {
+		e.preventDefault();
+		scroll_to($(this), 0);
+	});
+	
+    /*
+        Background slideshow
+    */
+    $('.top-content').backstretch("assets/img/backgrounds/2.jpg");
+    $('footer').backstretch("assets/img/backgrounds/1b.jpg");
+    
+    /*
+        Wow
+    */
+    new WOW().init();
+	
+});
