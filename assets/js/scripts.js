@@ -7,11 +7,13 @@ function scrollFunction() {
 	document.getElementById("nav-text2").style.color = "#00FF00";
 	document.getElementById("nav-text3").style.color = "#00FF00";
 	document.getElementById("nav-text4").style.color = "#00FF00";
+	document.getElementById("nav-bars").style.color = "#00FF00";
   } else {
 	document.getElementById("nav-text1").style.color = "#080808";
 	document.getElementById("nav-text2").style.color = "#080808";
 	document.getElementById("nav-text3").style.color = "#080808";
 	document.getElementById("nav-text4").style.color = "#080808";
+	document.getElementById("nav-bars").style.color = "#080808";
   }
 }
 
@@ -29,6 +31,29 @@ function scroll_to(clicked_link, nav_height) {
 
 
 jQuery(document).ready(function() {
+
+	$(".filter-button").click(function(){
+        var value = $(this).attr('data-filter');
+        
+        if(value == "all")
+        {
+            //$('.filter').removeClass('hidden');
+            $('.filter').show('1000');
+        }
+        else
+        {
+//            $('.filter[filter-item="'+value+'"]').removeClass('hidden');
+//            $(".filter").not('.filter[filter-item="'+value+'"]').addClass('hidden');
+            $(".filter").not('.'+value).hide('3000');
+            $('.filter').filter('.'+value).show('3000');
+            
+        }
+    });
+    
+    if ($(".filter-button").removeClass("active")) {
+$(this).removeClass("active");
+}
+$(this).addClass("active");
 
 	$(window).scroll(function() {
 		if ($(document).scrollTop() > 50) {
