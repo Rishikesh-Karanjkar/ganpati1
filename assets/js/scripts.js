@@ -77,7 +77,7 @@ $(this).addClass("active");
     /*
         Background slideshow
     */
-    $('.top-content').backstretch("assets/img/backgrounds/2.jpg");
+    $('.top-content').backstretch("assets/img/backgrounds/1.jpg");
     $('footer').backstretch("assets/img/backgrounds/1b.jpg");
     
     /*
