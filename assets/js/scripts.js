@@ -8,7 +8,7 @@ function scrollFunction() {
 	document.getElementById("nav-text1").style.color = "#00FF00";
 	document.getElementById("nav-text2").style.color = "#00FF00";
 	document.getElementById("nav-text3").style.color = "#00FF00";
-	document.getElementById("nav-text4").style.color = "#00FF00";
+	//document.getElementById("nav-text4").style.color = "#00FF00";
 	document.getElementById("nav-bars").style.color = "#00FF00";
 	image1.src = "assets/img/logo44.png";
 	image2.src = "assets/img/logo3.png";
@@ -16,7 +16,7 @@ function scrollFunction() {
 	document.getElementById("nav-text1").style.color = "#080808";
 	document.getElementById("nav-text2").style.color = "#080808";
 	document.getElementById("nav-text3").style.color = "#080808";
-	document.getElementById("nav-text4").style.color = "#080808";
+	//document.getElementById("nav-text4").style.color = "#080808";
 	document.getElementById("nav-bars").style.color = "#080808";
 	image1.src = "assets/img/logo55.png";
 	image2.src = "assets/img/logo1.png";
