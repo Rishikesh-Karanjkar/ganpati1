@@ -231,6 +231,16 @@ nav.navbar{
     margin-right: 100px;
     border-radius: 10px;
   }
+
+@media screen and (max-width: 800px) {
+    .d-card{
+        padding: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
   
   .d-card:hover {
     box-shadow: 0 8px 16px 0 rgba(8, 8, 8, 0.5);

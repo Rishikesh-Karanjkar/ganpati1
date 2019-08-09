@@ -1,3 +1,30 @@
+<?php
+
+include('db.php');
+
+if(isset($_POST["send"]))
+{
+    $name=$_POST['name'];
+    $email=$_POST['email'];
+	$mobile=$_POST['mobile'];
+	$subject=$_POST['subject'];
+	$message=$_POST['message'];
+
+
+    $query = "INSERT INTO custdata(`name`, `email`, `mobile`, `subject`, `message`) VALUES ('$name','$email','$mobile','$subject','$message')";
+    $res=mysqli_query($db,$query);
+    if ($res) 
+    {
+        echo "<script>alert('Thank you, we will reply you soon..!!');</script>";
+    }
+    else
+    {
+        echo "<script>alert('Error, Please try again..');</script>";
+    }
+}
+
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -53,7 +80,7 @@
 							<a id="nav-text2" class="nav-link font-weight-bold" href="branches.html" style="color: #080808;">Branches</a>
 						</li>
 						<li class="nav-item" style="padding: 0px 15px 0px 15px">
-							<a id="nav-text3" class="nav-link font-weight-bold" href="contact.html" style="color: #080808;">Contact us</a>
+							<a id="nav-text3" class="nav-link font-weight-bold" href="contact.php" style="color: #080808;">Contact us</a>
 						</li>
 						<!--li class="nav-item" style="padding: 0px 15px 0px 15px">
 							<a id="nav-text4" class="nav-link font-weight-bold" href="contact.html" style="color: #080808;">About</a>
@@ -83,20 +110,23 @@
 
 		<!-- Contact us-->
         <!-- Default form contact -->
-        <div class="container d-card" >
-            <form class="text-center border border-light p-5" action="#">
+        <div class="container d-card">
+            <form class="text-center border border-light p-5" action="#" method="post">
 
                 <p class="h4 mb-4">Contact us</p>
 
                 <!-- Name -->
-                <input type="text" id="defaultContactFormName" class="form-control mb-4" placeholder="Full Name">
+                <input name="name" type="text" id="defaultContactFormName" class="form-control mb-4" placeholder="Full Name">
 
                 <!-- Email -->
-                <input type="email" id="defaultContactFormEmail" class="form-control mb-4" placeholder="E-mail">
+                <input name="email" type="email" id="defaultContactFormEmail" class="form-control mb-4" placeholder="E-mail">
+
+				<!-- Mobile -->
+                <input name="mobile" type="mobile" id="defaultContactFormEmail" class="form-control mb-4" placeholder="Mobile">
 
                 <!-- Subject -->
                 <label>Subject</label>
-                <select class="browser-default custom-select mb-4">
+                <select name="subject" class="browser-default custom-select mb-4">
                     <option value="" disabled selected>Choose option</option>
                     <option value="Booking">Booking</option>
                     <option value="Franchise">Franchise</option>
@@ -106,11 +136,14 @@
 
                 <!-- Message -->
                 <div class="form-group">
-                    <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3" placeholder="Message"></textarea>
+                    <textarea name="message" class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3" placeholder="Message"></textarea>
                 </div>
 
                 <!-- Send button -->
-                <button class="btn btn-info btn-block" type="submit">Send</button>
+				<input name="send" class="btn btn-info btn-block" type="submit" value="Send">
+				
+				<!-- Back button -->
+				<input name="Back" class="btn btn-info btn-block" type="back" value="Back">
 
             </form>
         </div>  
