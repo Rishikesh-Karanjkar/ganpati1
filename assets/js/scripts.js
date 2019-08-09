@@ -4,23 +4,27 @@ window.onscroll = function() {scrollFunction()};
 function scrollFunction() {
 	image1 = document.getElementById('logo-web1');
 	image2 = document.getElementById('logo-web2');
-  if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-	document.getElementById("nav-text1").style.color = "#00FF00";
-	document.getElementById("nav-text2").style.color = "#00FF00";
-	document.getElementById("nav-text3").style.color = "#00FF00";
-	//document.getElementById("nav-text4").style.color = "#00FF00";
-	document.getElementById("nav-bars").style.color = "#00FF00";
-	image1.src = "assets/img/logo44.png";
-	image2.src = "assets/img/logo3.png";
-  } else {
-	document.getElementById("nav-text1").style.color = "#080808";
-	document.getElementById("nav-text2").style.color = "#080808";
-	document.getElementById("nav-text3").style.color = "#080808";
-	//document.getElementById("nav-text4").style.color = "#080808";
-	document.getElementById("nav-bars").style.color = "#080808";
-	image1.src = "assets/img/logo55.png";
-	image2.src = "assets/img/logo1.png";
-  }
+
+	if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50)
+	{
+		document.getElementById("nav-text1").style.color = "#00FF00";
+		document.getElementById("nav-text2").style.color = "#00FF00";
+		document.getElementById("nav-text3").style.color = "#00FF00";
+		//document.getElementById("nav-text4").style.color = "#00FF00";
+		document.getElementById("nav-bars").style.color = "#00FF00";
+		image1.src = "assets/img/logo44.png";
+		image2.src = "assets/img/logo3.png";
+	}
+	else 
+	{
+		document.getElementById("nav-text1").style.color = "#080808";
+		document.getElementById("nav-text2").style.color = "#080808";
+		document.getElementById("nav-text3").style.color = "#080808";
+		//document.getElementById("nav-text4").style.color = "#080808";
+		document.getElementById("nav-bars").style.color = "#080808";
+		image1.src = "assets/img/logo55.png";
+		image2.src = "assets/img/logo1.png";
+	} 
 }
 
 function scroll_to(clicked_link, nav_height) {
@@ -57,9 +61,9 @@ jQuery(document).ready(function() {
     });
     
     if ($(".filter-button").removeClass("active")) {
-$(this).removeClass("active");
-}
-$(this).addClass("active");
+		$(this).removeClass("active");
+	}
+	$(this).addClass("active");
 
 	$(window).scroll(function() {
 		if ($(document).scrollTop() > 50) {
@@ -68,6 +72,26 @@ $(this).addClass("active");
 			$('nav').addClass('transparent');
 		}
 	});
+
+
+	var winWidth  = 0;
+	$(window).resize(function() {
+		winWidth = $(window).width();
+		if (winWidth<=800) {
+			$('nav').removeClass('transparent');
+		}
+	})
+	$(window).scroll(function() {
+		winWidth = $(window).width();
+		if (winWidth<=800) {
+			$('nav').removeClass('transparent');
+		}
+	})
+	winWidth = $(window).width();
+	if (winWidth<=800) {
+		$('nav').removeClass('transparent');
+	}
+	
 
 	/*
 	    Scroll link

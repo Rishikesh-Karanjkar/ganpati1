@@ -199,3 +199,9 @@ nav.navbar{
 {
     margin-bottom: 30px;
 }
+
+@media screen and (max-width: 800px) {
+    #logo-web2{
+        display: none;
+    }
+}
